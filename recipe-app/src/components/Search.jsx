@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 const URL = "https://api.spoonacular.com/recipes/complexSearch";
 const API_KEY = "e7887d6f4f974b64a9dde6370c224e58";
 
-export default function Search() {
+export default function Search({ recipeData, setData }) {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
   const isFirstRender = useRef(true);
@@ -13,12 +13,12 @@ export default function Search() {
       const response = await fetch(`${URL}?query=${search}&apiKey=${API_KEY}`);
       const data = response.json();
       console.log(data.results);
+      setData(data.results);
     }
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
+    if (!isFirstRender.current) {
+      fetchRecipe();
     }
-    fetchRecipe();
+    isFirstRender = false;
   }, [search]);
 
   function handleSearch(e) {
