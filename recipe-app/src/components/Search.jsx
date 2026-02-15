@@ -6,19 +6,20 @@ const API_KEY = "e7887d6f4f974b64a9dde6370c224e58";
 export default function Search({ recipeData, setData }) {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
-  const isFirstRender = useRef(true);
+  const isFirstRender = true;
 
   useEffect(() => {
     async function fetchRecipe() {
       const response = await fetch(`${URL}?query=${search}&apiKey=${API_KEY}`);
-      const data = response.json();
+      const data = await response.json();
       console.log(data.results);
       setData(data.results);
     }
-    if (!isFirstRender.current) {
-      fetchRecipe();
+    if (isFirstRender.current) {
+      isFirstRender = false;
+      return;
     }
-    isFirstRender = false;
+    fetchRecipe();
   }, [search]);
 
   function handleSearch(e) {
