@@ -1,0 +1,21 @@
+.nav {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  color: gray;
+  display: inline-block;
+  width: 50%;
+}
+
+.navtext {
+  margin: 10px;
+  font-size: 2em;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 20px;
+  color: black;
+  transition: color 0.2s ease;
+}
+
+.navtext:hover {
+  color: green;
+}
