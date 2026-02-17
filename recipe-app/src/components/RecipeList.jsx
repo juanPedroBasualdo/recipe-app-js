@@ -1,8 +1,9 @@
 import RecipeItem from "./RecipeItem";
+import styles from "./recipelist.module.css";
 
 export default function RecipeList({ recipeData }) {
   return (
-    <div>
+    <div className={styles.recipelist}>
       {recipeData.map((recipe) => (
         <RecipeItem recipe={recipe} key={recipe.id} />
       ))}

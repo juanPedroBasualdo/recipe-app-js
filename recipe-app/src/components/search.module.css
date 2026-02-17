@@ -19,16 +19,17 @@
   border-radius: 2px;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-  background-color: orange;
-  transition: background-color 0.5s ease;
-  transition: color 0.5s cubic-bezier();
+  color: white;
+  background-color: lightseagreen;
+  transition:
+    background-color 0.5s ease,
+    transform 0.5s ease;
   float: right;
   font-size: 14px;
 }
 
 .searchbutton:hover {
-  color: white;
   background-color: black;
+  transform: translate(0px, -1px);
   cursor: pointer;
 }

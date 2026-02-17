@@ -12,6 +12,7 @@ function App() {
         <Nav />
         <Search recipeData={recipeData} setData={setRecipeData} />
       </div>
+      <RecipeList recipeData={recipeData} />
     </div>
   );
 }
