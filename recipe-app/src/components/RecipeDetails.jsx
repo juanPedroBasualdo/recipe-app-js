@@ -24,24 +24,31 @@ export default function RecipeDetails({ detailsId }) {
 
   if (detailsId !== "") {
     return (
-      <div>
-        <div className={styles.recipecard}>
-          <h1>{details.title}</h1>
-          <img src={details.image} alt="Recipe Image" />
+      <div className={styles.recipecard}>
+        <div>
+          <h1 className={styles.recipename}>{details.title}</h1>
+          <img
+            className={styles.recipeimg}
+            src={details.image}
+            alt="Recipe Image"
+          />
         </div>
-        <span>
-          <strong>⏲️ {details.readyInMinutes} minutes </strong>
-        </span>
-        <span>
-          {details.vegetarian ? "🥬 Vegetarian" : "🥩 Non-Vegetarian"}
-        </span>
-        <span>{details.vegan ? "🍄‍🟫 Vegan" : "🥚 Non-Vegan"}</span>
-        <span>
-          <strong>🍴 Servings: {details.servings} people</strong>
-        </span>
 
+        <div className={styles.recipedetails}>
+          <span>
+            <strong>⏲️ {details.readyInMinutes} minutes </strong>
+          </span>
+          <span>
+            {details.vegetarian ? "🥬 Vegetarian" : "🥩 Non-Vegetarian"}
+          </span>
+          <span>{details.vegan ? "🍄‍🟫 Vegan" : "🥚 Non-Vegan"}</span>
+          <span>
+            <strong>🍴 Servings: {details.servings} people</strong>
+          </span>
+        </div>
+
+        <h2>Instructions</h2>
         <div className={styles.recipeinstructions}>
-          <h2>Instructions</h2>
           <ol>
             {isLoading ? (
               <p> Loading.. </p>
