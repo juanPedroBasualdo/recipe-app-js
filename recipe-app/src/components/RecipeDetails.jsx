@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./recipedetails.module.css";
+import IngredientList from "./IngredientList";
 
 export default function RecipeDetails({ detailsId }) {
   const URL = `https://api.spoonacular.com/recipes/${detailsId}/information`;
@@ -46,6 +47,9 @@ export default function RecipeDetails({ detailsId }) {
             <strong>🍴 Servings: {details.servings} people</strong>
           </span>
         </div>
+
+        <h2>Ingredients</h2>
+        <IngredientList loadState={isLoading} details={details} />
 
         <h2>Instructions</h2>
         <div className={styles.recipeinstructions}>
