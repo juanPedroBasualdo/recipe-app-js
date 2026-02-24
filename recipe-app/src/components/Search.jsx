@@ -23,14 +23,14 @@ export default function Search({ recipeData, setData }) {
     <div className={styles.searchbox}>
       <form onSubmit={(e) => handleSearch(e)}>
         <button className={styles.searchbutton} type="submit">
-          Buscar
+          Search
         </button>
         <input
           className={styles.searchinput}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar una receta..."
+          placeholder="Search a recipe..."
         />
       </form>
     </div>
